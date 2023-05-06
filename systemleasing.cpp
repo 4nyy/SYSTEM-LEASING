@@ -12,13 +12,15 @@ void judul()
 
 int main()
 {
-    string username[100];
-    string password[100];
-    string noHp[100];
-    string address[100];
-    string firstname[100];
-    string lastname[100];
-    string custid[100];
+    string username[10];
+    string password[10];
+    string noHp[10];
+    string address[10];
+    string firstname[10];
+    string lastname[10];
+    string custid[10];
+    string status[10];
+    long int penghasilan[10];
     int user = 0;
     int pass = 0;
     int noH = 0;
@@ -26,6 +28,8 @@ int main()
     int firstn = 0;
     int lastn = 0;
     int cusid = 0;
+    int stat = 0;
+    int peng = 0;
     user++;
     pass++;
     noH++;
@@ -33,24 +37,31 @@ int main()
     firstn++;
     lastn++;
     cusid++;
+    stat++;
+    peng++;
+    
 
 regist:
     judul();
     cout << "\t========REGISTRASI=========";
     cout << "\n\tUsername : ";
-    cin >> username[user]; // meminta user untuk memasukan username
+    getline(cin, username[user]); // meminta user untuk memasukan username
     cout << "\tPassword : ";
-    cin >> password[pass]; // meminta user untuk memasukan password
+    getline(cin, password[pass]); // meminta user untuk memasukan password
     cout << "\tEnter your no Hp : ";
-    cin >> noHp[noH]; // meminta user untuk memasukan no Hp
+    getline(cin, noHp[noH]); // meminta user untuk memasukan no Hp
     cout << "\tEnter your address : ";
-    cin >> address[addr]; // meminta user untuk memasukan address
+    getline(cin, address[addr]); // meminta user untuk memasukan address
     cout << "\tEnter your first name : ";
-    cin >> firstname[firstn]; // meminta user untuk memasukan firstname
+    getline(cin, firstname[firstn]); // meminta user untuk memasukan firstname
     cout << "\tEnter your last name : ";
-    cin >> lastname[lastn]; // meminta user untuk memasukan lastname
-    cout << "\tEnter your custid : ";
-    cin >> custid[cusid]; // meminta user untuk memasukan custid
+    getline(cin, lastname[lastn]); // meminta user untuk memasukan lastname
+    cout << "\tEnter your NIK : ";
+    getline(cin, custid[cusid]); // meminta user untuk memasukan custid
+    cout << "\tEnter your status (single/family) : ";
+    getline(cin, status[stat]); // meminta user untuk memasukan status
+    cout << "\tPenghasilan (Bulanan) : ";
+    cin >> penghasilan[peng]; // meminta user untuk memasukan penghasilan
 
     // Mengatur ukuran kursor dan menghilangkan tampilan kursor pada layar
     CONSOLE_CURSOR_INFO cursor_info = {100, false};
@@ -69,27 +80,21 @@ regist:
             cout << " ";
         }
         cout << "] " << i << "%"; // persentase loading
-        Sleep(100);               // waktu jeda sebelum menggambar frame berikutnya
+        Sleep(20);               // waktu jeda sebelum menggambar frame berikutnya
     }
-    if (username[user], password[pass], noHp[noH], address[addr], firstname[firstn], lastname[lastn], custid[cusid] == "")
-    {
-        cout << "\n\teverything is required" << endl;
-        system("pause");
-        system("cls");
-        goto regist;
-    } // apabila  ada salah satu yang tidak di isi akan kembali lagi
-
     cout << "\nREGISTRASI SUCCSESSFULLY" << endl;
     system("pause");
     system("cls");
 
 login:
+    string u;
+    string p;
     judul();
     cout << "\t=========LOGINPAGE=========" << endl;
     cout << "\n\tEnter your Username : ";
-    cin >> username[user]; // meminta user untuk memasukan username untuk login
+    cin >> u; // meminta user untuk memasukan username untuk login
     cout << "\tEnter Your Password : ";
-    cin >> password[pass]; // meminta user untuk memasukan password untuk login
+    cin >> p; // meminta user untuk memasukan password untuk login
 
     // Menggambar animasi loading
     for (int i = 0; i < 100; i++)
@@ -104,10 +109,11 @@ login:
             cout << " ";
         }
         cout << "] " << i << "%"; // persentase loading
-        Sleep(100);               // waktu jeda sebelum menggambar frame berikutnya
+        Sleep(20);               // waktu jeda sebelum menggambar frame berikutnya
     }
-    if (username[user] == username[user] && password[user] == password[pass]) // masuk ke beranda
+    if (u == username[user] && p == password[pass]) // masuk ke beranda
     {
+        cout <<"succsess";
         int choice1;
         cout << "\nLOGIN SUCCSESSFULLY" << endl;
         system("pause");
@@ -134,40 +140,34 @@ login:
                 cout << " ";
             }
             cout << "] " << i << "%"; // persentase loading
-            Sleep(100);               // waktu jeda sebelum menggambar frame berikutnya
+            Sleep(20);               // waktu jeda sebelum menggambar frame berikutnya
             system("cls");
         }
         if (choice1 == 1) // melihat data user
         {
-            string choice2;
+            data :
+            int choice2;
+            string choice1;
             cout << "\t=========PERSONAL DATA=========";
-            cout << "\n\tfirst name : " << firstname[firstn];
-            cout << "\n\tLast name : " << lastname[lastn];
-            cout << "\n\tAddress : " << address[addr];
-            cout << "\n\tNo Hp : " << noHp[noH];
-            cout << "\n\tCustid : " << custid[cusid];
-            cout << "\n\tUsername : " << username[user];
-            cout << "\n\tPassword : " << password[pass];
-            cout << "\n\tedit your data ? (Y/N) : ";
+            cout << "\n\t1. first name : " << firstname[firstn];
+            cout << "\n\t2. Last name : " << lastname[lastn];
+            cout << "\n\t3. Address : " << address[addr];
+            cout << "\n\t4. No Hp : " << noHp[noH];
+            cout << "\n\t5. NIK : " << custid[cusid];
+            cout << "\n\t6. status : " << status[stat];
+            cout << "\n\t7. penghasilan : " << penghasilan[peng];
+            cout << "\n\t8. Username : " << username[user];
+            cout << "\n\t9. Password : " << password[pass];
+            cout << "\n\t10. Beranda"
+            cout << "\n\tedit your data 1/10/N ? : ";
             cin >> choice2;
-            if (choice2 == "Y" || choice2 == "y") // mengedit data user
+            system("pause");
+            system("cls");
+            if (choice2 == 1 || choice2 == 1) // mengedit data user
             {
                 cout << "\t=========EDIT DATA=========";
                 cout << "\n\tfirst name = ";
                 cin >> firstname[firstn];
-                cout << "\tLast name : ";
-                cin >> lastname[lastn];
-                cout << "\tAddress : ";
-                cin >> address[addr];
-                cout << "\tNo Hp : ";
-                cin >> noHp[noH];
-                cout << "\tCustid : ";
-                cin >> custid[cusid];
-                cout << "\tUsername : ";
-                cin >> username[user];
-                cout << "\tPassword : ";
-                cin >> password[pass];
-                cout << "\tBack to beranda? (y/n) ?";
                 for (int i = 0; i < 100; i++)
                 {
                     cout << "\rMemuat Data : ["; // kursor mundur ke awal baris
@@ -180,21 +180,199 @@ login:
                         cout << " ";
                     }
                     cout << "] " << i << "%"; // persentase loading
-                    Sleep(100);               // waktu jeda sebelum menggambar frame berikutnya
+                    Sleep(20);               // waktu jeda sebelum menggambar frame berikutnya
                 }
-                cout << "EDIT DATA SUCCSESSFULLY;";
-                if (choice2 == "y" || "Y") // kembali ke beranda
-                {
-                    goto beranda;
-                }
+                cout<<"succsess";
+                goto data;
             }
-            else // kembali ke beranda
+            if (choice2 == 2 || choice2 == 2)
             {
+                cout << "\t=========EDIT DATA=========";
+                cout << "\n\tLast name : ";
+                cin >> lastname[lastn];
+                 for (int i = 0; i < 100; i++)
+                {
+                    cout << "\rMemuat Data : ["; // kursor mundur ke awal baris
+                    for (int j = 0; j < i / 5; j++)
+                    {
+                        cout << "=";
+                    }
+                    for (int j = i / 5; j < 20; j++)
+                    {
+                        cout << " ";
+                    }
+                    cout << "] " << i << "%"; // persentase loading
+                    Sleep(20);               // waktu jeda sebelum menggambar frame berikutnya
+                }
+               cout<<"succsess";
+                goto data;
+            }
+            if (choice2 == 3 || choice2 == 3)
+            {
+                cout << "\t=========EDIT DATA=========";
+                cout << "\n\tAddress : ";
+                getline(cin,address[addr]);
+                 for (int i = 0; i < 100; i++)
+                {
+                    cout << "\rMemuat Data : ["; // kursor mundur ke awal baris
+                    for (int j = 0; j < i / 5; j++)
+                    {
+                        cout << "=";
+                    }
+                    for (int j = i / 5; j < 20; j++)
+                    {
+                        cout << " ";
+                    }
+                    cout << "] " << i << "%"; // persentase loading
+                    Sleep(20);               // waktu jeda sebelum menggambar frame berikutnya
+                }
+                cout<<"succsess";
+                goto data;
+            }
+            if (choice2 == 4 || choice2 == 4)
+            {
+                cout << "\t=========EDIT DATA=========";
+                cout << "\n\tNo Hp : ";
+                cin >> noHp[noH];
+                 for (int i = 0; i < 100; i++)
+                {
+                    cout << "\rMemuat Data : ["; // kursor mundur ke awal baris
+                    for (int j = 0; j < i / 5; j++)
+                    {
+                        cout << "=";
+                    }
+                    for (int j = i / 5; j < 20; j++)
+                    {
+                        cout << " ";
+                    }
+                    cout << "] " << i << "%"; // persentase loading
+                    Sleep(20);               // waktu jeda sebelum menggambar frame berikutnya
+                }
+                cout<<"succsess";
+                goto data;
+            }
+            if (choice2 == 5 || choice2 == 5)
+            {
+                cout << "\t=========EDIT DATA=========";
+                cout << "\n\tNIK : ";
+                cin >> custid[cusid];
+                 for (int i = 0; i < 100; i++)
+                {
+                    cout << "\rMemuat Data : ["; // kursor mundur ke awal baris
+                    for (int j = 0; j < i / 5; j++)
+                    {
+                        cout << "=";
+                    }
+                    for (int j = i / 5; j < 20; j++)
+                    {
+                        cout << " ";
+                    }
+                    cout << "] " << i << "%"; // persentase loading
+                    Sleep(20);               // waktu jeda sebelum menggambar frame berikutnya
+                }
+                cout<<"succsess";
+                goto data;
+            }
+            if (choice2 == 6 || choice2 == 6)
+            {
+                cout << "\t=========EDIT DATA=========";
+                cout << "\n\tStatus (single/family): ";
+                cin >> status[stat];
+                 for (int i = 0; i < 100; i++)
+                {
+                    cout << "\rMemuat Data : ["; // kursor mundur ke awal baris
+                    for (int j = 0; j < i / 5; j++)
+                    {
+                        cout << "=";
+                    }
+                    for (int j = i / 5; j < 20; j++)
+                    {
+                        cout << " ";
+                    }
+                    cout << "] " << i << "%"; // persentase loading
+                    Sleep(20);               // waktu jeda sebelum menggambar frame berikutnya
+                }
+                cout<<"succsess";
+                goto data;
+            }
+            if (choice2 == 7 || choice2 == 7)
+            {
+                cout << "\t=========EDIT DATA=========";
+                cout << "\n\tpenghasilan : ";
+                cin >> penghasilan[peng];
+                 for (int i = 0; i < 100; i++)
+                {
+                    cout << "\rMemuat Data : ["; // kursor mundur ke awal baris
+                    for (int j = 0; j < i / 5; j++)
+                    {
+                        cout << "=";
+                    }
+                    for (int j = i / 5; j < 20; j++)
+                    {
+                        cout << " ";
+                    }
+                    cout << "] " << i << "%"; // persentase loading
+                    Sleep(20);               // waktu jeda sebelum menggambar frame berikutnya
+                }
+                cout<<"succsess";
+                goto data;
+            }
+            if (choice2 == 8 || choice2 == 8)
+            {
+                cout << "\t=========EDIT DATA=========";
+                cout << "\n\tUsername : ";
+                cin >> username[user];
+                 for (int i = 0; i < 100; i++)
+                {
+                    cout << "\rMemuat Data : ["; // kursor mundur ke awal baris
+                    for (int j = 0; j < i / 5; j++)
+                    {
+                        cout << "=";
+                    }
+                    for (int j = i / 5; j < 20; j++)
+                    {
+                        cout << " ";
+                    }
+                    cout << "] " << i << "%"; // persentase loading
+                    Sleep(20);               // waktu jeda sebelum menggambar frame berikutnya
+                }
+                cout<<"succsess";
+                goto data;
+            }
+            if (choice2 == 9 || choice2 == 9)
+            {
+                cout << "\t=========EDIT DATA=========";
+                cout << "\n\tPassword : ";
+                cin >> password[pass];
+                 for (int i = 0; i < 100; i++)
+                {
+                    cout << "\rMemuat Data : ["; // kursor mundur ke awal baris
+                    for (int j = 0; j < i / 5; j++)
+                    {
+                        cout << "=";
+                    }
+                    for (int j = i / 5; j < 20; j++)
+                    {
+                        cout << " ";
+                    }
+                    cout << "] " << i << "%"; // persentase loading
+                    Sleep(20);               // waktu jeda sebelum menggambar frame berikutnya
+                }
+              cout<<"succsess";
+                goto data;
+            }
+            }else {
                 goto beranda;
             }
         }
+
+
+        // PRODUCT LEASING
+        // /////////////////////////////////////////////////////
+        ///////////////////////////////////////////////////////
         else if (choice1 == 2) // product leasing
         {
+
         }
     }
     else
