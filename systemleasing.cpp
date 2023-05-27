@@ -114,7 +114,7 @@ login:
     if (u == username[user] && p == password[pass]) // masuk ke beranda
     {
         cout <<"succsess";
-        int choice1;
+        int choices;
         cout << "\nLOGIN SUCCSESSFULLY" << endl;
         system("pause");
         system("cls");
@@ -126,7 +126,7 @@ login:
         cout << "\n\t2.Product";            // product
         cout << "\n\t3.logout";             // keluar
         cout << "\n\tEnter your choice : "; // pemilihan user
-        cin >> choice1;
+        cin >> choices;
         // Menggambar animasi loading
         for (int i = 0; i < 100; i++)
         {
@@ -143,7 +143,7 @@ login:
             Sleep(20);               // waktu jeda sebelum menggambar frame berikutnya
             system("cls");
         }
-        if (choice1 == 1) // melihat data user
+        if (choices == 1) // melihat data user
         {
             data :
             int choice2;
@@ -158,7 +158,7 @@ login:
             cout << "\n\t7. penghasilan : " << penghasilan[peng];
             cout << "\n\t8. Username : " << username[user];
             cout << "\n\t9. Password : " << password[pass];
-            cout << "\n\t10. Beranda"
+            cout << "\n\t10. Beranda";
             cout << "\n\tedit your data 1/10/N ? : ";
             cin >> choice2;
             system("pause");
@@ -360,23 +360,15 @@ login:
                 }
               cout<<"succsess";
                 goto data;
-            }
             }else {
                 goto beranda;
             }
-        }
-
-
-        // PRODUCT LEASING
-        // /////////////////////////////////////////////////////
-        ///////////////////////////////////////////////////////
-        else if (choice1 == 2) // product leasing
-        {
+        } 
+        
+        else if (choices == 1){
 
         }
-    }
-    else
-    {
+    }else{
         cout << "Login failed" << endl;
         cout << "please try again" << endl;
         system("pause");
