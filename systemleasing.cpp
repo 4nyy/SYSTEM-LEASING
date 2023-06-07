@@ -10,6 +10,14 @@ void judul()
     cout << "========================================KELOMPOK 2 SABTU PAGII=======================================" << endl;
 }
 
+class motor
+{
+public:
+    long int bulan;
+    long int dp;
+    long int harga;
+};
+
 int main()
 {
     // DATA
@@ -19,6 +27,22 @@ int main()
     // ALAMAT
     string namaJalan, kelurahan, kecamatan, rt, rw, noRumah;
 
+    // PRODUCT
+    bool beli = false, dataBeli = false;
+    string type = "none";
+    long int dp = 0, bulan = 0, belumBayar = 0, bayar = 0, sudahBayar = 0, harga = 0;
+    // HONDA
+    motor beat;
+    beat.dp = 3000000;
+    beat.bulan = 500000;
+    beat.harga = 15000000;
+    motor vario;
+    vario.dp = 5000000;
+    vario.bulan = 625000;
+    vario.harga = 20000000;
+    // choices
+    int choicesInt;
+    string choiceStr;
 regist:
     judul();
     cout << "\t========REGISTRASI=========";
@@ -64,17 +88,16 @@ regist:
 
 login:
     string u, forgotId, forgotNohp;
-    int inputLog;
     string p;
     judul();
     cout << "\t=========LOGINPAGE=========" << endl;
     cout << "\n\t1. Login ";
     cout << "\n\t2. Lupa Password ";
     cout << "\n\tMasukan Pilihan anda : ";
-    cin >> inputLog;
+    cin >> choicesInt;
     system("pause");
     system("cls");
-    if (inputLog == 1)
+    if (choicesInt == 1)
     {
         cout << "\t=========LOGINPAGE=========" << endl;
         cout << "\n\tUsername : ";
@@ -99,7 +122,6 @@ login:
         }
         if (u == username && p == password) // masuk ke beranda
         {
-            int choices;
             cout << "\nLOGIN BERHASIL" << endl;
             system("pause");
             system("cls");
@@ -109,10 +131,13 @@ login:
             cout << "\n\tHallo Selamat Datang " << firstname << lastname << endl;
             cout << "\n\t1. Data pribadi ";        // data pribadi
             cout << "\n\t2. Produk";               // product
-            cout << "\n\t3. logout";               // keluar
+            cout << "\n\t3. Pembayaran";           // bayar
+            cout << "\n\t4. Struck";               // Struck
+            cout << "\n\t5. logout";               // keluar
             cout << "\n\tMasukan pilihan anda : "; // pemilihan user
-            cin >> choices;
-            if (choices == 1) // melihat data user
+            cin >> choicesInt;
+            system("cls");
+            if (choicesInt == 1) // melihat data user
             {
                 // Menggambar animasi loading
                 for (int i = 0; i < 100; i++)
@@ -131,7 +156,6 @@ login:
                     system("cls");
                 }
             data:
-                int choice2;
                 cout << "\t=========PERSONAL DATA=========";
                 cout << "\n\t1. Nama depan : " << firstname;
                 cout << "\n\t2. Nama Belakang : " << lastname;
@@ -144,10 +168,9 @@ login:
                 cout << "\n\t9. Password : " << password;
                 cout << "\n\t10. Beranda";
                 cout << "\n\tMau mengedit data kamu ? (1/9) : ";
-                cin >> choice2;
-                system("pause");
+                cin >> choicesInt;
                 system("cls");
-                if (choice2 == 1) // mengedit data user
+                if (choicesInt == 1) // mengedit data user
                 {
                     cout << "\t=========EDIT DATA=========";
                     cout << "\n\tNama depan : ";
@@ -156,7 +179,7 @@ login:
                     system("cls");
                     goto data;
                 }
-                if (choice2 == 2)
+                if (choicesInt == 2)
                 {
                     cout << "\t=========EDIT DATA=========";
                     cout << "\n\tNama Belakang : ";
@@ -165,24 +188,23 @@ login:
                     system("cls");
                     goto data;
                 }
-                if (choice2 == 3)
+                if (choicesInt == 3)
                 {
                 alamat:
-                    int choice3;
                     address = namaJalan + " " + rt + " " + rw + " " + noRumah + " " + kelurahan + " " + kecamatan;
                     cout << "\t=========ALAMAT=========";
                     cout << "\n\t1. Nama Jalan : " << namaJalan;
-                    cout << "\n\t2. RT : "<<rt;
-                    cout << "\n\t3. RW : "<<rw;
-                    cout << "\n\t4. Nomor Rumah : "<<noRumah;
-                    cout << "\n\t5. Kelurahan : "<<kelurahan;
-                    cout << "\n\t6. Kecamatan : "<<kecamatan;
+                    cout << "\n\t2. RT : " << rt;
+                    cout << "\n\t3. RW : " << rw;
+                    cout << "\n\t4. Nomor Rumah : " << noRumah;
+                    cout << "\n\t5. Kelurahan : " << kelurahan;
+                    cout << "\n\t6. Kecamatan : " << kecamatan;
                     cout << "\n\t7. kembali";
                     cout << "\n\tMau mengedit alamat kamu ? (1/6) : ";
-                    cin >> choice3;
+                    cin >> choicesInt;
                     system("pause");
                     system("cls");
-                    if (choice3 == 1)
+                    if (choicesInt == 1)
                     {
                         cout << "\n\t Nama Jalan : JL ";
                         cin >> namaJalan;
@@ -190,7 +212,7 @@ login:
                         system("cls");
                         goto alamat;
                     }
-                    if (choice3 == 2)
+                    if (choicesInt == 2)
                     {
                         cout << "\n\tRT : ";
                         cin >> rt;
@@ -198,7 +220,7 @@ login:
                         system("cls");
                         goto alamat;
                     }
-                    if (choice3 == 3)
+                    if (choicesInt == 3)
                     {
                         cout << "\n\tRW : ";
                         cin >> rw;
@@ -206,7 +228,7 @@ login:
                         system("cls");
                         goto alamat;
                     }
-                    if (choice3 == 4)
+                    if (choicesInt == 4)
                     {
                         cout << "\n\tNo rumah : ";
                         cin >> noRumah;
@@ -214,7 +236,7 @@ login:
                         system("cls");
                         goto alamat;
                     }
-                    if (choice3 == 5)
+                    if (choicesInt == 5)
                     {
                         cout << "\n\tKelurahan : ";
                         cin >> kelurahan;
@@ -222,7 +244,7 @@ login:
                         system("cls");
                         goto alamat;
                     }
-                    if (choice3 == 6)
+                    if (choicesInt == 6)
                     {
                         cout << "\n\tKecamatam : ";
                         cin >> kecamatan;
@@ -254,7 +276,7 @@ login:
                     system("cls");
                     goto data;
                 }
-                if (choice2 == 4)
+                if (choicesInt == 4)
                 {
                     cout << "\t=========EDIT DATA=========";
                     cout << "\n\tNo Hp : ";
@@ -264,14 +286,14 @@ login:
                     system("cls");
                     goto data;
                 }
-                if (choice2 == 5)
+                if (choicesInt == 5)
                 {
                     cout << "\t=========EDIT DATA=========";
                     cout << "\n\tNIK : ";
                     cin >> custid;
                     goto data;
                 }
-                if (choice2 == 6)
+                if (choicesInt == 6)
                 {
                     cout << "\t=========EDIT DATA=========";
                     cout << "\n\tStatus (single/family): ";
@@ -280,7 +302,7 @@ login:
                     system("cls");
                     goto data;
                 }
-                if (choice2 == 7)
+                if (choicesInt == 7)
                 {
                     cout << "\t=========EDIT DATA=========";
                     cout << "\n\tPenghasilan : Rp.";
@@ -289,7 +311,7 @@ login:
                     system("cls");
                     goto data;
                 }
-                if (choice2 == 8)
+                if (choicesInt == 8)
                 {
                     cout << "\t=========EDIT DATA=========";
                     cout << "\n\tUsername : ";
@@ -298,7 +320,7 @@ login:
                     system("cls");
                     goto data;
                 }
-                if (choice2 == 9)
+                if (choicesInt == 9)
                 {
                     cout << "\t=========EDIT DATA=========";
                     cout << "\n\tPassword : ";
@@ -313,11 +335,153 @@ login:
                 }
             }
 
-            else if (choices == 2)
+            // start product
+
+            else if (choicesInt == 2)
             {
-                cout << "Product";
-                system("pause");
-                system("cls");
+                if (dataBeli == false)
+                {
+                product:
+                    if (status == "single" || status == "SINGLE" || status == "Single")
+                    {
+                    }
+                    if (status == "family" || status == "FAMILY" || status == "Family")
+                    {
+                        cout << "\t=========PRODUCT=========";
+                        cout << "\n\t1. Honda";
+                        cout << "\n\t2. Yamaha";
+                        cout << "\n\t3. Suzuki";
+                        cout << "\n\t4. Kembali";
+                        cout << "\n\tMasukan pilihan Anda (1/4): ";
+                        cin >> choicesInt;
+                        system("pause");
+                        system("cls");
+                        if (choicesInt == 1)
+                        {
+                            cout << "\t=========HONDA=========";
+                            cout << "\n\t1. Honda Beat Angsuran 24 kali";
+                            cout << "\n\t2. Honda Vario Angsuran 24 kali";
+                            cout << "\n\tMasukan Pilihan Anda : ";
+                            cin >> choicesInt;
+                            system("pause");
+                            system("cls");
+                            if (choicesInt == 1)
+                            {
+
+                                cout << "\t=========HONDA=========";
+                                cout << "\n\tAnda memilih Honda Beat Angsuran 24 kali";
+                                cout << "\n\tHarga Honda Beat : Rp." << beat.harga;
+                                cout << "\n\tDP Honda Beat : Rp." << beat.dp;
+                                cout << "\n\tPerbulan : Rp." << beat.bulan;
+                                cout << "\n\tApakah mau lanjut (Y/N) : ";
+                                cin >> choiceStr;
+                                system("pause");
+                                system("cls");
+                                if (choiceStr == "y" || choiceStr == "Y")
+                                {
+                                    dataBeli = true;
+                                    beli = true;
+                                    type = "Honda Beat";
+                                    dp = beat.dp;
+                                    bulan = beat.bulan;
+                                    harga = beat.harga;
+                                    belumBayar = harga - dp;
+                                    goto pembayaran;
+                                }
+                                else
+                                {
+                                    goto product;
+                                }
+                            }
+                        }
+                        else
+                        {
+                            goto beranda;
+                        }
+                    }
+                } else{
+                    cout << "\t=========PRODUCT=========";
+                    cout << "\n\tAnda sudah membeli product";
+                    system("pause");
+                    system("cls");
+                    goto beranda;
+                }
+            }
+
+            // end Product
+            if (choicesInt == 3)
+            {
+            pembayaran:
+                if (beli == true)
+                {
+                    if (sudahBayar == harga)
+                    {
+                        cout << "\t=========PEMBAYARAN=========";
+                        cout << "\n\tAnda memilih Type : " << type;
+                        cout << "\n\tDp : Rp." << dp;
+                        cout << "\n\tCicilan perbulan dari Rp." << bulan << " sampai Rp." << harga;
+                        cout << "\n\tJumlah yang sudah dibayar anda " << bayar << " Yang belum anda bayar: Rp." << belumBayar;
+                        cout << "\n\tLUNAS";
+                        cout << "\n\tApakah anda mau melihat struck (Y/N): ";
+                        cin >> choiceStr;
+                        system("cls");
+                        if (choiceStr == "y" || choiceStr == "Y")
+                        {
+                            goto struck;
+                        }
+                        else
+                        {
+                            goto beranda;
+                        }
+                        system("cls");
+                    }
+                    else
+                    {
+                        cout << "\t=========PEMBAYARAN=========";
+                        cout << "\n\tAnda memilih Type : " << type;
+                        cout << "\n\tDp : Rp." << dp;
+                        cout << "\n\tCicilan perbulan dari Rp." << bulan << "sampai Rp." << harga;
+                        cout << "\n\tJumlah yang belum anda bayar: Rp." << belumBayar;
+                        cout << "\n\tApakah anda mau bayar (Y/N): ";
+                        cin >> choiceStr;
+                        system("cls");
+                        if (choiceStr == "y" || choiceStr == "Y")
+                        {
+                            cout << "\t=========PEMBAYARAN=========";
+                            cout << "\n\tAnda membayar : Rp." << bulan;
+                            bayar += bulan;
+                            sudahBayar = bayar + dp;
+                            belumBayar = harga - sudahBayar;
+                            system("pause");
+                            system("cls");
+                            if (sudahBayar == harga)
+                            {
+                                goto beranda;
+                            }
+                            else
+                            {
+                                goto pembayaran;
+                            }
+                        }
+                        else
+                        {
+                            goto beranda;
+                        }
+                    }
+                }
+                else
+                {
+                    cout << "\t=========PEMBAYARAN=========";
+                    cout << "\n\tAnda belum membeli product";
+                    system("pause");
+                    system("cls");
+                    goto beranda;
+                }
+            }
+            if (choicesInt == 4)
+            {
+            struck:
+                cout << "\t=========STRUCK=========";
             }
             else
             {
@@ -333,7 +497,7 @@ login:
             goto login;
         }
     }
-    if (inputLog == 2)
+    if (choicesInt == 2)
     {
         cout << "\n\tMasukan NIK kamu : ";
         cin >> forgotId;
