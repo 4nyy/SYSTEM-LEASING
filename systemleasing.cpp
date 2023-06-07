@@ -402,6 +402,7 @@ login:
                 } else{
                     cout << "\t=========PRODUCT=========";
                     cout << "\n\tAnda sudah membeli product";
+                    cout<<endl;
                     system("pause");
                     system("cls");
                     goto beranda;
@@ -452,6 +453,7 @@ login:
                             bayar += bulan;
                             sudahBayar = bayar + dp;
                             belumBayar = harga - sudahBayar;
+                            cout<<endl;
                             system("pause");
                             system("cls");
                             if (sudahBayar == harga)
