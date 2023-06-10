@@ -206,14 +206,14 @@ login:
                 system("cls");
             data:
                 cout << "\t=========PERSONAL DATA=========";
+                cout << "\n\t7. Username      : " << regist.username;
+                cout << "\n\t8. Password      : " << regist.password;
                 cout << "\n\t1. Nama depan    : " << regist.firstname;
                 cout << "\n\t2. Nama Belakang : " << regist.lastname;
                 cout << "\n\t3. No Hp         : " << regist.noHp;
                 cout << "\n\t4. NIK           : " << regist.custid;
                 cout << "\n\t5. status        : " << status;
                 cout << "\n\t6. penghasilan   : Rp." << penghasilan;
-                cout << "\n\t7. Username      : " << regist.username;
-                cout << "\n\t8. Password      : " << regist.password;
                 cout << "\n\t9. Nama Jalan    : " << regist.namaJalan;
                 cout << "\n\t10. RT           : " << regist.rt;
                 cout << "\n\t11. RW           : " << regist.rw;
