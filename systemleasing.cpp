@@ -206,14 +206,14 @@ login:
                 system("cls");
             data:
                 cout << "\t=========PERSONAL DATA=========";
-                cout << "\n\t7. Username      : " << regist.username;
-                cout << "\n\t8. Password      : " << regist.password;
-                cout << "\n\t1. Nama depan    : " << regist.firstname;
-                cout << "\n\t2. Nama Belakang : " << regist.lastname;
-                cout << "\n\t3. No Hp         : " << regist.noHp;
-                cout << "\n\t4. NIK           : " << regist.custid;
-                cout << "\n\t5. status        : " << status;
-                cout << "\n\t6. penghasilan   : Rp." << penghasilan;
+                cout << "\n\t1. Username      : " << regist.username;
+                cout << "\n\t2. Password      : " << regist.password;
+                cout << "\n\t3. Nama depan    : " << regist.firstname;
+                cout << "\n\t4. Nama Belakang : " << regist.lastname;
+                cout << "\n\t5. No Hp         : " << regist.noHp;
+                cout << "\n\t6. NIK           : " << regist.custid;
+                cout << "\n\t7. status        : " << status;
+                cout << "\n\t8. penghasilan   : Rp." << penghasilan;
                 cout << "\n\t9. Nama Jalan    : " << regist.namaJalan;
                 cout << "\n\t10. RT           : " << regist.rt;
                 cout << "\n\t11. RW           : " << regist.rw;
@@ -225,61 +225,7 @@ login:
                 cout << "\n\tMau mengedit data kamu ? (1/14) : ";
                 cin >> choicesInt;
                 system("cls");
-                if (choicesInt == 1) // mengedit data user
-                {
-                    cin.ignore();
-                    cout << "\t=========EDIT DATA=========";
-                    cout << "\n\tNama depan          : ";
-                    cin.getline(regist.firstname, 20);
-                    system("cls");
-                    goto data;
-                }
-                if (choicesInt == 2)
-                {
-                    cin.ignore();
-                    cout << "\t=========EDIT DATA=========";
-                    cout << "\n\tNama Belakang       : ";
-                    cin.getline(regist.lastname, 20);
-                    system("cls");
-                    goto data;
-                }
-                if (choicesInt == 3)
-                {
-                    cin.ignore();
-                    cout << "\t=========EDIT DATA=========";
-                    cout << "\n\tNo Hp               : ";
-                    cin.getline(regist.noHp, 20);
-                    system("cls");
-                    goto data;
-                }
-                if (choicesInt == 4)
-                {
-                    cin.ignore();
-                    cout << "\t=========EDIT DATA=========";
-                    cout << "\n\tNIK                   : ";
-                    cin.getline(regist.custid, 20);
-                    system("cls");
-                    goto data;
-                }
-                if (choicesInt == 5)
-                {
-                    cin.ignore();
-                    cout << "\t=========EDIT DATA=========";
-                    cout << "\n\tStatus (single/family): ";
-                    cin >> status;
-                    system("cls");
-                    goto data;
-                }
-                if (choicesInt == 6)
-                {
-                    cin.ignore();
-                    cout << "\t=========EDIT DATA=========";
-                    cout << "\n\tPenghasilan          : Rp.";
-                    cin >> penghasilan;
-                    system("cls");
-                    goto data;
-                }
-                if (choicesInt == 7)
+                 if (choicesInt == 1)
                 {
                     cin.ignore();
                     cout << "\t=========EDIT DATA=========";
@@ -288,7 +234,7 @@ login:
                     system("cls");
                     goto data;
                 }
-                if (choicesInt == 8)
+                if (choicesInt == 2)
                 {
                     cin.ignore();
                     cout << "\t=========EDIT DATA=========";
@@ -297,6 +243,61 @@ login:
                     system("cls");
                     goto data;
                 }
+                if (choicesInt == 3) // mengedit data user
+                {
+                    cin.ignore();
+                    cout << "\t=========EDIT DATA=========";
+                    cout << "\n\tNama depan          : ";
+                    cin.getline(regist.firstname, 20);
+                    system("cls");
+                    goto data;
+                }
+                if (choicesInt == 4)
+                {
+                    cin.ignore();
+                    cout << "\t=========EDIT DATA=========";
+                    cout << "\n\tNama Belakang       : ";
+                    cin.getline(regist.lastname, 20);
+                    system("cls");
+                    goto data;
+                }
+                if (choicesInt == 5)
+                {
+                    cin.ignore();
+                    cout << "\t=========EDIT DATA=========";
+                    cout << "\n\tNo Hp               : ";
+                    cin.getline(regist.noHp, 20);
+                    system("cls");
+                    goto data;
+                }
+                if (choicesInt == 6)
+                {
+                    cin.ignore();
+                    cout << "\t=========EDIT DATA=========";
+                    cout << "\n\tNIK                   : ";
+                    cin.getline(regist.custid, 20);
+                    system("cls");
+                    goto data;
+                }
+                if (choicesInt == 7)
+                {
+                    cin.ignore();
+                    cout << "\t=========EDIT DATA=========";
+                    cout << "\n\tStatus (single/family): ";
+                    cin >> status;
+                    system("cls");
+                    goto data;
+                }
+                if (choicesInt == 8)
+                {
+                    cin.ignore();
+                    cout << "\t=========EDIT DATA=========";
+                    cout << "\n\tPenghasilan          : Rp.";
+                    cin >> penghasilan;
+                    system("cls");
+                    goto data;
+                }
+               
                 if (choicesInt == 9)
                 {
                     cin.ignore();
