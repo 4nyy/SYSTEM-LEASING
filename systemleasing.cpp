@@ -33,7 +33,7 @@ int main()
     string password1;
     data regist;
     // PRODUCT
-    bool beli = false, dataBeli = false;
+    bool beli = false, dataBeli = true;
     string type = "none";
     long double dp = 0, bulan = 0, belumBayar = 0, bayar = 0, harga = 0;
     // FAMILY
@@ -371,7 +371,7 @@ login:
 
             else if (choicesInt == 2)
             {
-                if (dataBeli == false)
+                if (dataBeli == true)
                 {
                 product:
                     if (status == "single" && penghasilan >= 4000000)
@@ -420,7 +420,7 @@ login:
                                 system("cls");
                                 if (choiceStr == "y" || choiceStr == "Y")
                                 {
-                                    dataBeli = true;
+                                    dataBeli = false;
                                     beli = true;
                                     goto pembayaran;
                                 }
@@ -455,7 +455,7 @@ login:
                                 system("cls");
                                 if (choiceStr == "y" || choiceStr == "Y")
                                 {
-                                    dataBeli = true;
+                                    dataBeli = false;
                                     beli = true;
                                     goto pembayaran;
                                 }
@@ -463,6 +463,9 @@ login:
                                 {
                                     goto product;
                                 }
+                            } else {
+                                system("cls");
+                                goto product;
                             }
                             // VARIO END
                             // VARIO END
@@ -505,7 +508,7 @@ login:
                                 system("cls");
                                 if (choiceStr == "y" || choiceStr == "Y")
                                 {
-                                    dataBeli = true;
+                                    dataBeli = false;
                                     beli = true;
                                     goto pembayaran;
                                 }
@@ -540,7 +543,7 @@ login:
                                 system("cls");
                                 if (choiceStr == "y" || choiceStr == "Y")
                                 {
-                                    dataBeli = true;
+                                    dataBeli = false;
                                     beli = true;
                                     goto pembayaran;
                                 }
@@ -548,6 +551,9 @@ login:
                                 {
                                     goto product;
                                 }
+                            } else {
+                                system("cls");
+                                goto product;
                             }
                             // NMAX END
                             // NMAX END
@@ -590,7 +596,7 @@ login:
                                 system("cls");
                                 if (choiceStr == "y" || choiceStr == "Y")
                                 {
-                                    dataBeli = true;
+                                    dataBeli = false;
                                     beli = true;
                                     goto pembayaran;
                                 }
@@ -625,7 +631,7 @@ login:
                                 system("cls");
                                 if (choiceStr == "y" || choiceStr == "Y")
                                 {
-                                    dataBeli = true;
+                                    dataBeli = false;
                                     beli = true;
                                     goto pembayaran;
                                 }
@@ -633,6 +639,9 @@ login:
                                 {
                                     goto product;
                                 }
+                            } else {
+                                system("cls");
+                                goto product;
                             }
                             // GSX END
                             // GSX END
@@ -698,7 +707,7 @@ login:
                                 system("cls");
                                 if (choiceStr == "y" || choiceStr == "Y")
                                 {
-                                    dataBeli = true;
+                                    dataBeli = false;
                                     beli = true;
                                     goto pembayaran;
                                 }
@@ -733,7 +742,7 @@ login:
                                 system("cls");
                                 if (choiceStr == "y" || choiceStr == "Y")
                                 {
-                                    dataBeli = true;
+                                    dataBeli = false;
                                     beli = true;
                                     goto pembayaran;
                                 }
@@ -741,6 +750,9 @@ login:
                                 {
                                     goto product;
                                 }
+                            } else {
+                                system("cls");
+                                goto product;
                             }
                             // VARIO END
                             // VARIO END
@@ -783,7 +795,7 @@ login:
                                 system("cls");
                                 if (choiceStr == "y" || choiceStr == "Y")
                                 {
-                                    dataBeli = true;
+                                    dataBeli = false;
                                     beli = true;
                                     goto pembayaran;
                                 }
@@ -818,7 +830,7 @@ login:
                                 system("cls");
                                 if (choiceStr == "y" || choiceStr == "Y")
                                 {
-                                    dataBeli = true;
+                                    dataBeli = false;
                                     beli = true;
                                     goto pembayaran;
                                 }
@@ -826,6 +838,9 @@ login:
                                 {
                                     goto product;
                                 }
+                            } else {
+                                system("cls");
+                                goto product;
                             }
                             // NMAX END
                             // NMAX END
@@ -868,7 +883,7 @@ login:
                                 system("cls");
                                 if (choiceStr == "y" || choiceStr == "Y")
                                 {
-                                    dataBeli = true;
+                                    dataBeli = false;
                                     beli = true;
                                     goto pembayaran;
                                 }
@@ -877,9 +892,9 @@ login:
                                     goto product;
                                 }
                             }
-                            // FAZZIO END
-                            // FAZZIO END
-                            // FAZZIO END
+                            // NEX END
+                            // NEX END
+                            // NEX END
 
                             // GSX START
                             // GSX START
@@ -903,7 +918,7 @@ login:
                                 system("cls");
                                 if (choiceStr == "y" || choiceStr == "Y")
                                 {
-                                    dataBeli = true;
+                                    dataBeli = false;
                                     beli = true;
                                     goto pembayaran;
                                 }
@@ -911,6 +926,9 @@ login:
                                 {
                                     goto product;
                                 }
+                            } else {
+                                system("cls");
+                                goto product;
                             }
                             // GSX END
                             // GSX END
